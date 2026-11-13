@@ -351,11 +351,6 @@
       const v=document.getElementById("audioPlayer");v.muted=false;
     })();
     const blobUrlCache = {};
-    if (typeof TREE_DATA !== "undefined") window.TREE_DATA = TREE_DATA;
-    if (typeof PLAYABLE_NODES !== "undefined") window.PLAYABLE_NODES = PLAYABLE_NODES;
-    if (typeof LEAF !== "undefined") window.LEAF = LEAF;
-    if (typeof TOPICS !== "undefined") window.TOPICS = TOPICS;
-    if (typeof CLIP_URLS !== "undefined") window.CLIP_URLS = CLIP_URLS;
     function getAudioUrl(nodeId) {
       if (blobUrlCache[nodeId]) return blobUrlCache[nodeId];
       if (POSTERS[nodeId]) audioEl.poster = POSTERS[nodeId];
@@ -846,6 +841,13 @@
       audioEl.src = getAudioUrl("0_0_0");
     }
 
+    (function () {
+      try { window.TREE_DATA = TREE_DATA; } catch (e) {}
+      try { window.PLAYABLE_NODES = PLAYABLE_NODES; } catch (e) {}
+      try { window.LEAF = LEAF; } catch (e) {}
+      try { window.TOPICS = TOPICS; } catch (e) {}
+      try { window.CLIP_URLS = CLIP_URLS; } catch (e) {}
+    })();
     init();
   </script>
 <script>
