@@ -351,6 +351,11 @@
       const v=document.getElementById("audioPlayer");v.muted=false;
     })();
     const blobUrlCache = {};
+    if (typeof TREE_DATA !== "undefined") window.TREE_DATA = TREE_DATA;
+    if (typeof PLAYABLE_NODES !== "undefined") window.PLAYABLE_NODES = PLAYABLE_NODES;
+    if (typeof LEAF !== "undefined") window.LEAF = LEAF;
+    if (typeof TOPICS !== "undefined") window.TOPICS = TOPICS;
+    if (typeof CLIP_URLS !== "undefined") window.CLIP_URLS = CLIP_URLS;
     function getAudioUrl(nodeId) {
       if (blobUrlCache[nodeId]) return blobUrlCache[nodeId];
       if (POSTERS[nodeId]) audioEl.poster = POSTERS[nodeId];
